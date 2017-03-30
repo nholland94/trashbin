@@ -1,0 +1,16 @@
+Name: JiraFire
+Version: 0.1
+Synopsis: Provides a customizable personal jira burndown
+Authors: Nathan Holland <nholland94@gmail.com>
+License: LGPL with OCaml linking exception
+Description: Jira burndown allows you to create a personal burndown from a board an queue up tasks.
+
+OASISFormat: 0.4
+BuildTools: ocamlbuild
+Plugins: META (0.4), DevFiles (0.4)
+
+Executable "jira_fire"
+  Path: src
+  MainIs: main.ml
+  BuildDepends:
+    core, curl, yojson, base64, redis

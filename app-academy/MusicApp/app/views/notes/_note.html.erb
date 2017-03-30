@@ -1,0 +1,12 @@
+<%= note.body %><br>
+<small>
+Posted by: <%= note.user.email %><br>
+Created at: <%= note.created_at %><br>
+Updated at: <%= note.updated_at %><br>
+</small>
+<% if logged_in? && current_user.id == note.user_id %>
+  <%= button_to "Delete note", 
+    note_url(note.id), 
+    method: "delete" %>
+<% end %>
+<br><br>

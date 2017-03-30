@@ -1,0 +1,18 @@
+<h1><%= @user.username %></h1>
+
+<h3>Submitted links</h3>
+<table border="1">
+	<tr>
+		<th>Votes</th>
+		<th>Link</th>
+		<th>View comments</th>
+	</tr>
+	<% @user.links.each do |link| %>
+		<tr>
+			<td><% "to do" %></td>
+			<td><%= link_to link.title, link.url %></td>
+			<td><%= "to do" %></td>
+		</tr>
+	<% end %>
+</table>
+

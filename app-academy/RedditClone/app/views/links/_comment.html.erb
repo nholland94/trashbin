@@ -1,0 +1,19 @@
+<% comment = Comment.find(comment_id) %>
+<li><%= comment.text %>&nbsp;
+	<% user = comment.user %>
+	<%= link_to user.username, user_url(user.id) %>&nbsp;
+	<%= link_to "Reply", comment_url(comment.id) %>&nbsp;
+	<%= comment.karma %>&nbsp;
+	<%= render "vote", comment_id: comment.id, value: 1,
+										 link_id: comment.link_id, button_text: "Upvote" %>&nbsp;
+ 	<%= render "vote", comment_id: comment.id, value: -1,
+ 										 link_id: comment.link_id, button_text: "Downvote" %>
+<% if !comment_hash.empty? %>
+	<ul>
+		<% comment_hash.each do |comment_id, comment_children| %>
+			<%= render "comment", :comment_id => comment_id,
+														:comment_hash => comment_children %>
+		<% end %>
+	</ul>
+<% end %>
+</li>

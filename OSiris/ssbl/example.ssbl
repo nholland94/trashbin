@@ -1,0 +1,9 @@
+# ssbl - shitty stack based language
+say-hello ("name" --)
+  "Hello, " swap str-concat
+  "! Welcome to my language!" str-concat
+  print
+
+main (stdin stdout sdterr --)
+  "World" say-hello
+  1 exit

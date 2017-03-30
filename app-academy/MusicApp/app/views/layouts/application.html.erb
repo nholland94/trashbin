@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Music</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+
+  <% if logged_in? %>
+    <%= button_to "Logout", logout_url, method: "delete" %>
+  <% else %>
+    <%= button_to "Login", login_url, method: "get" %>
+  <% end %>
+</head>
+<body>
+
+<% flash.each do |type, message| %>
+  <%= "#{type.to_s} #{message}" %>
+  <br>
+<% end %>
+
+<%= yield %>
+
+</body>
+</html>

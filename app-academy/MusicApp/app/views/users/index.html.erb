@@ -1,0 +1,6 @@
+<br>
+<% @users.each do |user| %>
+  <%= link_to user.email, user_url(user.id) %>
+  <%= button_to "Delete", user_url(user.id), method: "delete" %>
+  <br>
+<% end %>

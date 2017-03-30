@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RedditClone</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+	<h1>Reddit</h1>
+
+	<% if logged_in? %>
+		<% user = current_user %>
+		<%= link_to user.username, user_url(user.id) %>
+		<%= button_to "Submit a link", new_link_url, method: :get %>
+		<%= button_to "Log Out", session_url, method: :delete %>
+	<% else %>
+		<div style="float: left; width: auto;">
+			<%= button_to "Sign Up", new_user_url, method: :get %>
+		</div>
+			<%= button_to "Log In", new_session_url, method: :get %>
+	<% end %>
+
+	<% flash.each do |type, messages| %>
+		<% messages.each do |message| %>
+			<%= "#{type}: #{message}" %>
+		<% end %>
+	<% end %>
+
+<%= yield %>
+
+
+
+</body>
+</html>

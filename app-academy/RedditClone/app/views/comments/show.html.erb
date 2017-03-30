@@ -1,0 +1,5 @@
+<h1>Reply to comment</h1>
+
+<p><%= @comment.text %></p>
+<%= render "comments/form", :link_id => @comment.link_id,
+														:parent_comment_id => @comment.id %>

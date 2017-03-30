@@ -1,0 +1,7 @@
+<form action="<%= users_url %>" method = "post">
+  <input type="hidden"
+    name="_method"
+    value="put">
+
+  <%= render "form", button_text: "Submit changes" %>
+</form>

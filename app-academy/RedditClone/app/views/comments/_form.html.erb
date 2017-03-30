@@ -1,0 +1,19 @@
+<form action="<%= comments_url %>" method="post">
+
+	<% parent_comment_id ||= nil %>
+
+	<input type="hidden", name="authenticity_token", 												 												 value="<%= form_authenticity_token %>">
+
+	<input type="hidden", name="comment[user_id]",
+												value="<%= current_user.id %>">
+
+	<input type="hidden", name="comment[link_id]", 												 												 value="<%= link_id %>">
+
+	<input type="hidden", name="comment[parent_comment_id]",
+	 											value="<%= parent_comment_id %>">
+
+	<textarea cols=50 rows=5 name="comment[text]",
+						placeholder="Comment"></textarea><br>
+
+	<input type="submit", name="Submit comment!">
+</form>

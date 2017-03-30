@@ -1,0 +1,4 @@
+%{"elli": {:git, "https://github.com/knutin/elli.git", "d3a54c059c415b843e9ab27cb5ab134dc113262f", [tag: "v1.0.5"]},
+  "ibrowse": {:git, "https://github.com/cmullaparthi/ibrowse.git", "fd81d44182507c23445ed720df8c30e2e8da9d9b", [tag: "v4.2.2"]},
+  "poison": {:hex, :poison, "1.5.0"},
+  "yamerl": {:git, "https://github.com/yakaz/yamerl.git", "ae810a808817d9482b4628ae3e20d746e3729fe0", [tag: "v0.3.2-1"]}}

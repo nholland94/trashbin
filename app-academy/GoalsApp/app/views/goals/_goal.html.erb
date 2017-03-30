@@ -1,0 +1,27 @@
+<% link_to_show_page ||= false %>
+
+<%= goal.title %><br>
+<% if link_to_show_page %>
+	<%= link_to "View Goal Page", goal_url(goal.id) %>
+<% else %>
+	<%= goal.body %>
+<% end %>
+<br>
+<%= goal.is_private ? "Private" : "Public" %><br>
+<%= goal.finished ? "Finished" : "Unfinished" %><br>
+
+<% if current_user == goal.user %>
+
+	<% if goal.finished %>
+
+		<%= button_to "Mark as unfinished", mark_unfinished_goal_url(goal.id), method: :get %>
+
+	<% else %>
+
+		<%= button_to "Mark as finished", mark_finished_goal_url(goal.id), method: :get %>
+
+	<% end %>
+
+	<%= button_to "Delete", goal_url(goal.id), :method => :delete %>
+
+<% end %>

@@ -1,0 +1,7 @@
+<ul>
+	<% @user.goals.each do |goal| %>
+	<li>
+		<%= render "goals/goal", goal: goal, link_to_show_page: true %>
+	</li>
+	<%end %>
+</ul>

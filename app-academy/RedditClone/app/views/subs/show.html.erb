@@ -1,0 +1,22 @@
+<h1><%= @sub.name %></h1>
+
+<table border="1">
+	<tr>
+		<th>Rank</th>
+		<th>Votes</th>
+		<th>Link</th>
+		<th>View comments</th>
+		<th>Submitted by</th>
+	</tr>
+	<% @sub.links.each_with_index do |link, i| %>
+		<tr>
+			<td><%= i + 1 %></td>
+			<td><% "to do" %></td>
+			<td><%= link_to link.title, link.url %></td>
+			<td><%= link_to "#{link.comments.count} comments",
+											link_url(link.id) %></td>
+			<% user = link.user %>
+			<td><%= link_to user.username, user_url(user.id) %></td>
+		</tr>
+	<% end %>
+</table>

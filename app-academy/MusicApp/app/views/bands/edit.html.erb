@@ -1,0 +1,4 @@
+<form action="<%= band_url(params[:id]) %>" method="post">
+  <input type="hidden" name="_method" value="put">
+  <%= render "form", button_text: "Update band" %>
+</form>

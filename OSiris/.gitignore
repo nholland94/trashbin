@@ -1,0 +1,5 @@
+build
+*.elf
+ssbl/parser
+kernel/kernel
+*.o

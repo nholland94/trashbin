@@ -1,0 +1,41 @@
+puts "Input your email:"
+email = gets.chomp
+
+if User.where({email: email}).empty?
+  user = User.new({email: email})
+else
+  user = User.where({email: email}).first
+end
+
+puts "What do you want to do?"
+puts "0. Create shortened URL"
+puts "1. Visit shortened URL"
+input = gets.chomp.to_i
+
+case input
+when 0
+  puts "Type in your long URL"
+  long_url = gets.chomp
+
+  if ShortUrl.where({long_url: long_url}).empty?
+    code = ShortUrl.create_for_user_and_long_url!(user, long_url)
+  else
+    puts "That URL already exists"
+    code = ShortUrl.where({long_url: long_url}).first
+  end
+
+  puts "Short URL is: #{code.code}"
+when 1
+  puts "Type in the shortened URL"
+  url = gets.chomp
+
+  if ShortUrl.where({code: url}).empty?
+    puts "No short url found"
+  else
+    short_url = ShortUrl.where({code: url}).first
+
+    Visit.new({user_id: user.id, short_url_id: short_url.id}).save
+
+    Launchy.open(short_url.long_url)
+  end
+end

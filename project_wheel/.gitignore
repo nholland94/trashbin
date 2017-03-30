@@ -1,0 +1,8 @@
+*.swp
+*.cmi
+*.cmo
+*.cmx
+*.o
+project_wheel.byte
+project_wheel.exe
+project_wheel

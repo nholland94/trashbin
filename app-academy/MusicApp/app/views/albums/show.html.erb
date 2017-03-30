@@ -1,0 +1,8 @@
+Title: <%= @album.title %><br>
+<% artist = @album.artist %>
+Artist: <%= link_to artist.name, band_url(artist.id) %><br>
+
+<h2>Track Listing</h2>
+<% @album.tracks.each do |track| %>
+  
+<% end %>

@@ -1,0 +1,22 @@
+digraph architecture {
+  request [label="Request"];
+
+  {
+    node [shape=box];
+    web_handler [label="Web Handler"];
+    router [label="Router"];
+    resource [label="Resource"];
+    service [label="Service"];
+    request_pool [label="Request Pool"];
+  }
+
+  request -> web_handler;
+  web_handler -> router -> web_handler;
+  web_handler -> resource;
+  web_handler -> resource;
+  web_handler -> resource;
+  resource -> service -> resource;
+  resource -> request_pool;
+  resource -> request_pool;
+  resource -> request_pool;
+}

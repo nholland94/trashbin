@@ -1,0 +1,32 @@
+# OASIS_START
+# DO NOT EDIT (digest: f5cc38a7921cc0db5b89fdccc9334d7c)
+# Ignore VCS directories, you can use the same kind of rule outside
+# OASIS_START/STOP if you want to exclude directories that contains
+# useless stuff for the build process
+true: annot, bin_annot
+<**/.svn>: -traverse
+<**/.svn>: not_hygienic
+".bzr": -traverse
+".bzr": not_hygienic
+".hg": -traverse
+".hg": not_hygienic
+".git": -traverse
+".git": not_hygienic
+"_darcs": -traverse
+"_darcs": not_hygienic
+# Executable jira_fire
+"src/main.byte": oasis_executable_jira_fire_native
+<src/*.ml{,i,y}>: oasis_executable_jira_fire_native
+"src/main.byte": pkg_base64
+"src/main.byte": pkg_core
+"src/main.byte": pkg_curl
+"src/main.byte": pkg_redis
+"src/main.byte": pkg_yojson
+<src/*.ml{,i,y}>: pkg_base64
+<src/*.ml{,i,y}>: pkg_core
+<src/*.ml{,i,y}>: pkg_curl
+<src/*.ml{,i,y}>: pkg_redis
+<src/*.ml{,i,y}>: pkg_yojson
+# OASIS_STOP
+
+true: thread

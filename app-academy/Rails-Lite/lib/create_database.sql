@@ -1,0 +1,15 @@
+CREATE TABLE users (
+  id INTEGER PRIMARY KEY,
+  username VARCHAR(25) NOT NULL,
+  email VARCHAR(80) NOT NULL,
+  password_digest VARCHAR(25) NOT NULL
+);
+
+CREATE TABLE posts (
+  id INTEGER PRIMARY KEY,
+  title VARCHAR(255) NOT NULL,
+  body TEXT NOT NULL,
+  user_id INTEGER NOT NULL,
+
+  FOREIGN KEY(user_id) REFERENCES users(id)
+);

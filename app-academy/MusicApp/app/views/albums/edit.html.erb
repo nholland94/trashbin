@@ -1,0 +1,6 @@
+<form action="<%= album_url(params[:id]) %>" method="post">
+  <input type="hidden"
+    name="_method"
+    value="put">
+  <%= render "form", button_text: "Create new album" %>
+</form>

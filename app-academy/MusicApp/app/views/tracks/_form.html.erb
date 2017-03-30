@@ -1,0 +1,31 @@
+<input type="hidden"
+  name="authenticity_token"
+  value="<%= form_authenticity_token %>">
+
+<label for="album">Album:</label><br>
+<select name="track[album_id]" id="album">
+<% Album.all.each do |album| %>
+  <% if album.id == @track.album_id %>
+    <% selected = " selected=\"selected\"" %>
+  <% end %>
+  <option value="<%= album.id %>"<%= selected %>><%= album.title %></option>
+<% end %>
+</select><br>
+
+<label for="title">Title:</label><br>
+<input type="text"
+  name="track[title]"
+  id="title"
+  placeholder="title"
+  value="<%= @track.title %>"><br>
+
+<label for="lyrics">Lyrics:</label><br>
+<textarea rows=5 cols=50
+  name="track[lyrics]"
+  id="lyrics"
+  placeholder="Insert lyrics here...">
+  <%= @track.lyrics %>
+</textarea>
+
+
+<input type="submit" value="<%= button_text %>">

@@ -1,0 +1,15 @@
+Name: <%= @band.name %>
+
+
+<h2>Discography</h2>
+<% @band.albums.each do |album| %>
+  <%= link_to album.title, album_url(album.id) %>:<br>
+  <ol>
+  <% album.tracks.each do |track| %>
+    <li><%= link_to track.title, track_url(track.id) %></li>
+  <% end %>
+  </ol>
+
+<% end %>
+
+<%= button_to "Delete band", band_url(@band.id), method: "delete" %>

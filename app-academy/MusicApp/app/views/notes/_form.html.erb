@@ -1,0 +1,22 @@
+<input type="hidden"
+  name="authenticity_token"
+  value="<%= form_authenticity_token %>">
+
+<input type="hidden"
+  name="note[user_id]"
+  value="<%= current_user.id %>">
+
+<input type="hidden"
+  name="note[track_id]"
+  value="<%= params[:track_id] %>"
+
+<label for="body">Body:</label><br>
+<textarea rows=5 cols=50
+  id="body" 
+  name="note[body]">
+  <%= @note.body %>
+</textarea>
+
+<br>
+
+<input type="submit" text="<%= button_text %>">

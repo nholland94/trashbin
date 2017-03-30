@@ -1,0 +1,8 @@
+Title: <%= @track.title %><br>
+Artist: <%= @track.album.artist.name %><br>
+Album: <%= @track.album.title %><br>
+Lyrics: <%= @track.lyrics %><br>
+<br><br>
+<% @track.notes.each do |note| %>
+  <%= render "notes/note", note: note %>
+<% end %>

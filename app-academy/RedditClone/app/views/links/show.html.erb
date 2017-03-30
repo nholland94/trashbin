@@ -1,0 +1,17 @@
+<h1><%= @link.title %></h1>
+<br>
+
+<h3><%= @link.text %></h3>
+<br>
+
+<%= render "comments/form", :link_id => @link.id %>
+
+<% @link.comments_by_parent_id.each do |comment_id, comment_children| %>
+	<ul>
+		<%= render "comment", :comment_hash => comment_children,
+															:comment_id => comment_id %>
+	</ul>
+<% end %>
+
+
+

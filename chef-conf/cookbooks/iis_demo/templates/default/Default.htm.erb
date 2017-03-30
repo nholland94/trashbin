@@ -1,0 +1,14 @@
+<html>
+  <body>
+    <h1>Hello, <%= node[:iis_demo][:greeting] %>!</h1>
+    <p>My name is <%= node[:hostname] %></p>
+
+    <ul>
+    <% @countries.each do |country| %>
+      <li>
+        <a href="<%= country %>.htm"><%= country %></a>
+      </li>
+    <% end %>
+    </ul>
+  </body>
+</html>

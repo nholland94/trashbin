@@ -1,0 +1,16 @@
+<%= form_for goal do |f| %>
+  <%= f.label :title %>:
+  <%= f.text_field :title %><br />
+
+  <%= f.label :body %>:
+  <%= f.text_field :body %><br />
+
+	<input type="hidden" name="goal[user_id]" value="<%= current_user.id %>">
+
+	<label for="goal_is_private_false">Public</label>
+  <%= f.radio_button("is_private", false) %><br />
+	<label for="goal_is_private_true">Private</label>
+  <%= f.radio_button("is_private", true) %><br />
+
+  <%= f.submit %>
+<% end %>
